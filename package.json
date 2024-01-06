@@ -10,8 +10,5 @@
   },
   "devDependencies": {
     "vite": "^5.0.8"
-  },
-  "dependencies": {
-    "kontra": "^9.0.0"
   }
 }

@@ -7,6 +7,7 @@ class PointManager {
         this.points = [];
         this.context = context;
     }
+
     addRandomPoint() {
         let point = new Point(this.canvas);
 
@@ -16,6 +17,11 @@ class PointManager {
             console.log('Point already exists');
         }//check if the point is already in the array
 
+    }
+
+    addPoint(x, y) {
+        let point = new Point(this.canvas, x, y);
+        this.points.push(point);
     }
 
 
@@ -37,7 +43,9 @@ class PointManager {
         return this.points;
     }
 
-
+    getRandomPoint(){
+        return this.points[getRandom(this.points.length)];
+    }
 
     drawPoints() {
         this.points.forEach(point => {

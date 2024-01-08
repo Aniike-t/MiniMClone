@@ -12,12 +12,9 @@ function checkRandomIsCorrect(p, points) {
 
         if (p.x === points[i].x && p.y === points[i].y) {
             isCorrect = false;
-            console.log("Point already exists");
-            console.log(p.x, points[i].x, p.y, points[i].y);
         }
 
     }
-    console.log("isCorrect");
     return isCorrect;
 }
 
@@ -29,12 +26,32 @@ function isMouseOverPoint(mouseX, mouseY, points, tempPoint, context, canvas) {
         const distance = Math.sqrt((mouseX - point.x) ** 2 + (mouseY - point.y) ** 2);
 
         if (distance <= point.radius) {
-            console.log('Mouse is over a point:', point);
             tempPoint.updatePosition(point.x, point.y);
             tempPoint.draw();
             return true;
         }
     }
     context.clearRect(0, 0, canvas.width, canvas.height);
+    return false;
+}
+
+function notOP(a){
+    if(a == false){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function existTrack(track, tracks){
+    for (let i = 0; i < tracks.length; i++) {
+        const currentTrack = tracks[i];
+        if (
+            (currentTrack.p1 === track.p1 && currentTrack.p2 === track.p2) ||
+            (currentTrack.p1 === track.p2 && currentTrack.p2 === track.p1)
+        ) {
+            return true;
+        }
+    }
     return false;
 }

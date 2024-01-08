@@ -1,8 +1,16 @@
-function Mouse(canvas, context, pointManager, tempPoint) {
+
+
+
+
+function Mouse(canvas, context, pointManager, tempPoint, tempTrack, sceneDraw) {
+  let mouseX = 0;
+  let mouseY = 0;
+  let btnA = false;
   // Attach the contextmenu event listener to your element (e.g., canvas)
   canvas.addEventListener('contextmenu', handleContextMenu);
   canvas.addEventListener('mousedown', handleMouseDown);
   canvas.addEventListener('mousemove', handleMouseMove);
+  document.addEventListener('keydown', handleKeyDown);
 
   function handleMouseDown(e) {
       if (e.button === 2) {
@@ -17,16 +25,23 @@ function Mouse(canvas, context, pointManager, tempPoint) {
   }
 
   function handleMouseMove(e) {
-      const mouseX = e.clientX - canvas.getBoundingClientRect().left;
-      const mouseY = e.clientY - canvas.getBoundingClientRect().top;
-      
-      // Check if the mouse is over any point
-      if (isMouseOverPoint(mouseX, mouseY, pointManager.getPoints(), tempPoint, context, canvas)) {
-          console.log('Mouse is over a point');
-      } else {
-          console.log('Mouse is not over a point');
+      mouseX = e.clientX - canvas.getBoundingClientRect().left;
+      mouseY = e.clientY - canvas.getBoundingClientRect().top;
+      if(!tempPoint.checkSelection()){
+        isMouseOverPoint(mouseX, mouseY, pointManager.getPoints(), tempPoint, context, canvas)
+        
       }
+      tempTrack.tempDraw(mouseX, mouseY, tempPoint.tempPointPosX(), tempPoint.tempPointPosY())
+      
+      
+      
   }
+  function handleKeyDown(e) {
+    if (e.key.toLowerCase() === 'a') {
+        tempTrack.select();
+        btnA = !btnA; // Toggle the state
+    }
+}
 }
 
 export default Mouse;

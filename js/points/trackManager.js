@@ -6,17 +6,21 @@ class TrackManager {
         this.tracks = [];
         this.context = context;
     }
+    
     addTrack(p1, p2) {
         if (p1 === undefined || p2 === undefined) {
             console.log("p1 and p2 must be defined");
-            
+            return;    
         }
-        else if (p1.x===p2.x && p1.y===p2.y) {
+        
+        else if ((p1.x===p2.x && p1.y===p2.y) || existTrack(new Track(p1, p2, this.context, this.canvas),this.tracks)) {
             console.log("p1 and p2 must be different");
+            return;
         }
         else{
             let track = new Track(p1, p2, this.context, this.canvas);
             this.tracks.push(track);
+            console.log(this.tracks);
         }
     }
     drawTracks() {

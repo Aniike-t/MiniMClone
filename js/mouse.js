@@ -1,7 +1,3 @@
-
-
-
-
 function Mouse(canvas, context, pointManager, tempPoint, tempTrack, sceneDraw) {
   let mouseX = 0;
   let mouseY = 0;
@@ -32,9 +28,6 @@ function Mouse(canvas, context, pointManager, tempPoint, tempTrack, sceneDraw) {
         
       }
       tempTrack.tempDraw(mouseX, mouseY, tempPoint.tempPointPosX(), tempPoint.tempPointPosY())
-      
-      
-      
   }
   function handleKeyDown(e) {
     if (e.key.toLowerCase() === 'a') {

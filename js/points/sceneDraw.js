@@ -1,5 +1,5 @@
 class SceneDraw{
-    constructor(context, canvas, pointManager, trackManager, tempPoint, tempTrack){
+    constructor(context, canvas, pointManager, trackManager, tempPoint, tempTrack, overPoint){
         this.canvas = canvas;
         this.context = context;
         this.pointManager = pointManager;
@@ -7,6 +7,7 @@ class SceneDraw{
         this.tempPoint = tempPoint;
         this.tempTrack = tempTrack;
         this.color = "blue"
+        this.overPoint = overPoint;
     }
 
     drawStatic(){
@@ -20,6 +21,7 @@ class SceneDraw{
         if (this.tempTrack.willDraw && this.tempPoint.checkSelection()) {
             this.tempTrack.drawTempTrack();
             this.color = "yellow";
+            this.checkPointsOverTempTrack();
         }else{
             this.tempTrack.willDraw = false;
             this.color = "blue";
@@ -28,6 +30,9 @@ class SceneDraw{
         this.tempPoint.draw({ color: this.color });
          // Draw the temporary point
         this.context.save();
+    }
+    checkPointsOverTempTrack(){
+        this.tempTrack.checkPassingPoint(this.pointManager.getPoints(), this.overPoint);
     }
 
 }

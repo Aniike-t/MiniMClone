@@ -14,8 +14,8 @@ const pointManager = new PointManager(context, canvas);
 const trackManager = new TrackManager(context, canvas);
 const tempPoint = new TempPoint(-10, -10, context);
 const tempTrack = new TempTrack(context);
-
-const sceneDraw = new SceneDraw(context, canvas, pointManager, trackManager, tempPoint, tempTrack);
+const overPoint = new TempPoint(-10, -10, context);
+const sceneDraw = new SceneDraw(context, canvas, pointManager, trackManager, tempPoint, tempTrack, overPoint);
 
 
 canvas.width = 800;

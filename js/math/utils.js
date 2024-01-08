@@ -55,3 +55,8 @@ function existTrack(track, tracks){
     }
     return false;
 }
+
+function calculateSlope(x1, y1, x2, y2) {
+    const slope = (y2 - y1) / (x2 - x1);
+    return parseFloat(slope.toFixed(1));
+}

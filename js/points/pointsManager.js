@@ -20,8 +20,10 @@ class PointManager {
     }
 
     addPoint(x, y) {
+        
         let point = new Point(this.canvas, x, y);
         this.points.push(point);
+        console.log(this.points);
     }
 
 
@@ -55,6 +57,10 @@ class PointManager {
             this.context.fill();
             this.context.closePath();
         });
+    }
+    getPoint(x,y){
+        console.log(x,y);
+        return getPointAtXY(x,y,this.points);
     }
 }
 

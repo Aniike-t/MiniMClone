@@ -22,17 +22,27 @@ class SceneDraw{
             this.tempTrack.drawTempTrack();
             this.color = "yellow";
             this.checkPointsOverTempTrack();
+            if(this.overPoint.tempPointPosX() === -10 && this.overPoint.tempPointPosY() === -10){
+                console.log("SDdraw1 is -10 -10");
+            }
         }else{
             this.tempTrack.willDraw = false;
             this.color = "blue";
-        
+            if(this.overPoint.tempPointPosX() === -10 && this.overPoint.tempPointPosY() === -10){
+                console.log("SDdraw2 is -10 -10");
+            }
         }
         this.tempPoint.draw({ color: this.color });
          // Draw the temporary point
         this.context.save();
+        
     }
     checkPointsOverTempTrack(){
+        if(!this.overPoint.selected)
         this.tempTrack.checkPassingPoint(this.pointManager.getPoints(), this.overPoint);
+        else{
+            this.overPoint.draw({color: "black"})
+        }
     }
 
 }

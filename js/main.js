@@ -23,7 +23,7 @@ canvas.height = 600;
 
 // Create a single instance of TempPoint
 
-Mouse(canvas, context, pointManager, tempPoint, tempTrack, sceneDraw);
+Mouse(canvas, context, pointManager, tempPoint, tempTrack, overPoint, trackManager);
 
 
 

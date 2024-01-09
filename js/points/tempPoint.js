@@ -5,6 +5,8 @@ class TempPoint {
         this.context = context;
         this.selected = false;
         
+
+        
     }
     checkSelection(){
         if(this.x === -10 && this.y === -10){
@@ -37,5 +39,6 @@ class TempPoint {
     tempPointPosY(){
         return this.y;
     }
+
 }
 export default TempPoint;

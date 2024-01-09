@@ -24,9 +24,9 @@ class TempTrack {
         this.context.beginPath();
         this.context.moveTo(this.x1, this.y1);
         this.context.lineTo(this.x2, this.y2);
-        
         this.context.stroke();
         this.context.closePath();
+        
     }
 
     select() {
@@ -34,16 +34,20 @@ class TempTrack {
         this.willDraw = !this.willDraw;
     }
 
-    checkPassingPoint(points,overpoint){
+    checkPassingPoint(points, overpoint){
         for (let i = 0; i < points.length; i++) {
-            console.log(calculateSlope(this.x1, this.y1, points[i].x, points[i].y), calculateSlope(this.x2, this.y2, points[i].x, points[i].y));
-            if (calculateSlope(this.x1, this.y1, points[i].x, points[i].y) == calculateSlope( points[i].x, points[i].y,this.x2, this.y2)) {
+            if (calculateSlope(this.x1, this.y1, points[i].x, points[i].y) == calculateSlope(points[i].x, points[i].y, this.x2, this.y2)) {
+                overpoint.selected = true;
                 console.log("passing");
-                
                 overpoint.updatePosition(points[i].x, points[i].y)
+                console.log(overpoint.x, overpoint.y)
                 overpoint.draw({ color: "black" })
+                return true;
+
             }
         }
+        overpoint.selected = false;
+        overpoint.updatePosition(-10, -10);
         return false;
     }
 }

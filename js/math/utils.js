@@ -50,8 +50,8 @@ function existTrack(track, tracks){
     for (let i = 0; i < tracks.length; i++) {
         const currentTrack = tracks[i];
         if (
-            (currentTrack.p1 === track.p1 && currentTrack.p2 === track.p2) ||
-            (currentTrack.p1 === track.p2 && currentTrack.p2 === track.p1)
+            (currentTrack.p1 === track.p1 && currentTrack.p2 === track.p2 && currentTrack.TrackColor === track.TrackColor) ||
+            (currentTrack.p1 === track.p2 && currentTrack.p2 === track.p1 && currentTrack.TrackColor === track.TrackColor)
         ) {
             return true;
         }

@@ -1,10 +1,14 @@
 import Track  from "./track.js";
 
 class TrackManager {
-    constructor(context, canvas) {
+    constructor(context, canvas, TrackColor) {
         this.canvas = canvas;
         this.tracks = [];
         this.context = context;
+        this.TrackColor = TrackColor;
+    }
+    updateColor(color) {
+        this.TrackColor = color;
     }
     
     addTrack(p1, p2) {
@@ -13,12 +17,13 @@ class TrackManager {
             return;    
         }
         
-        else if ((p1.x===p2.x && p1.y===p2.y) || existTrack(new Track(p1, p2, this.context, this.canvas),this.tracks)) {
+        else if ((p1.x===p2.x && p1.y===p2.y) || existTrack(new Track(p1, p2, this.context, this.canvas, this.TrackColor),this.tracks)) {
             console.log("p1 and p2 must be different");
             return;
         }
         else{
-            let track = new Track(p1, p2, this.context, this.canvas);
+            let track = new Track(p1, p2, this.context, this.canvas, this.TrackColor);
+            console.log(track.TrackColor);
             this.tracks.push(track);
             console.log(this.tracks);
         }

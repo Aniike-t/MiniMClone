@@ -8,10 +8,11 @@ import SceneDraw from './points/sceneDraw';
 import TempTrack from './points/temp/tempTrack';
 
 // Initialize variables
+let TrackColor = "blue";
 const canvas = document.getElementById('gameCanvas');
 const context = canvas.getContext('2d');
 const pointManager = new PointManager(context, canvas);
-const trackManager = new TrackManager(context, canvas);
+const trackManager = new TrackManager(context, canvas, TrackColor);
 const tempPoint = new TempPoint(-10, -10, context);
 const tempTrack = new TempTrack(context);
 const overPoint = new TempPoint(-10, -10, context);
@@ -52,6 +53,11 @@ window.AddPoint = function() {
 
 window.AddTrack = function() {
   trackManager.addTrack(pointManager.getRandomPoint(), pointManager.getRandomPoint());
+}
+
+window.ChangeLine = function(color) {
+  TrackColor = color;
+  trackManager.updateColor(TrackColor);
 }
 
 sceneDraw.drawStatic();

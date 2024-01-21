@@ -6,13 +6,16 @@ import Mouse from './mouse';
 import TrackManager from './points/trackManager';
 import SceneDraw from './points/sceneDraw';
 import TempTrack from './points/temp/tempTrack';
+import TrackInfo from './points/trackInfo/trackInfo';
 
 // Initialize variables
 let TrackColor = "blue";
 const canvas = document.getElementById('gameCanvas');
 const context = canvas.getContext('2d');
+const RedTrack = new TrackInfo();
+const BlueTrack = new TrackInfo();
 const pointManager = new PointManager(context, canvas);
-const trackManager = new TrackManager(context, canvas, TrackColor);
+const trackManager = new TrackManager(context, canvas, TrackColor, RedTrack, BlueTrack);
 const tempPoint = new TempPoint(-10, -10, context);
 const tempTrack = new TempTrack(context);
 const overPoint = new TempPoint(-10, -10, context);

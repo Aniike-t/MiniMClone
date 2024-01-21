@@ -23,13 +23,13 @@ class SceneDraw{
             this.color = "yellow";
             this.checkPointsOverTempTrack();
             if(this.overPoint.tempPointPosX() === -10 && this.overPoint.tempPointPosY() === -10){
-                console.log("SDdraw1 is -10 -10");
+
             }
         }else{
             this.tempTrack.willDraw = false;
             this.color = "blue";
             if(this.overPoint.tempPointPosX() === -10 && this.overPoint.tempPointPosY() === -10){
-                console.log("SDdraw2 is -10 -10");
+
             }
         }
         this.tempPoint.draw({ color: this.color });

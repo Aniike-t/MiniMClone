@@ -1,11 +1,13 @@
 import Track  from "./track.js";
 
 class TrackManager {
-    constructor(context, canvas, TrackColor) {
+    constructor(context, canvas, TrackColor, RedTrack, BlueTrack) {
         this.canvas = canvas;
         this.tracks = [];
         this.context = context;
         this.TrackColor = TrackColor;
+        this.RedTrack = RedTrack;
+        this.BlueTrack = BlueTrack;
     }
     updateColor(color) {
         this.TrackColor = color;
@@ -13,19 +15,26 @@ class TrackManager {
     
     addTrack(p1, p2) {
         if (p1 === undefined || p2 === undefined) {
-            console.log("p1 and p2 must be defined");
             return;    
         }
         
         else if ((p1.x===p2.x && p1.y===p2.y) || existTrack(new Track(p1, p2, this.context, this.canvas, this.TrackColor),this.tracks)) {
-            console.log("p1 and p2 must be different");
             return;
         }
         else{
+            
             let track = new Track(p1, p2, this.context, this.canvas, this.TrackColor);
-            console.log(track.TrackColor);
-            this.tracks.push(track);
-            console.log(this.tracks);
+
+            if(this.TrackColor === "red" && this.RedTrack.addTrack(track)){
+                this.tracks.push(track);
+                console.log(this.tracks);   
+                this.RedTrack.ConsoleLog();
+            }
+            else if(this.TrackColor === "blue" && this.BlueTrack.addTrack(track)){
+                this.tracks.push(track);
+                console.log(this.tracks);
+                this.BlueTrack.ConsoleLog();
+            }
         }
     }
     drawTracks() {

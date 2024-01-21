@@ -38,9 +38,7 @@ class TempTrack {
         for (let i = 0; i < points.length; i++) {
             if (calculateSlope(this.x1, this.y1, points[i].x, points[i].y) == calculateSlope(points[i].x, points[i].y, this.x2, this.y2)) {
                 overpoint.selected = true;
-                console.log("passing");
                 overpoint.updatePosition(points[i].x, points[i].y)
-                console.log(overpoint.x, overpoint.y)
                 overpoint.draw({ color: "black" })
                 return true;
 

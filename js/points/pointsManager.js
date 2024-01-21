@@ -23,7 +23,7 @@ class PointManager {
         
         let point = new Point(this.canvas, x, y);
         this.points.push(point);
-        console.log(this.points);
+
     }
 
 
@@ -59,7 +59,7 @@ class PointManager {
         });
     }
     getPoint(x,y){
-        console.log(x,y);
+
         return getPointAtXY(x,y,this.points);
     }
 }

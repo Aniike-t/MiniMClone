@@ -23,13 +23,16 @@ function handleMouseDown(e) {
             pointManager.getPoint(
                 Math.floor(overPoint.tempPointPosX()), 
                 Math.floor(overPoint.tempPointPosY())
-                )
-            );
-            tempPoint.updatePosition(overPoint.tempPointPosX(), overPoint.tempPointPosY());
+                    )
+                );
+            tempPoint.updatePosition(
+                overPoint.tempPointPosX(), 
+                overPoint.tempPointPosY()
+                );
             tempPoint.selected = true;
             if(overPoint.tempPointPosX() === -10 && overPoint.tempPointPosY() === -10){
                 console.log("handleMouseDown is -10 -10");
-            }
+        }
     }
 }
 
@@ -46,13 +49,13 @@ function handleMouseDown(e) {
       if(!tempPoint.checkSelection()){
         isMouseOverPoint(mouseX, mouseY, pointManager.getPoints(), tempPoint, context, canvas)
         if(overPoint.tempPointPosX() === -10 && overPoint.tempPointPosY() === -10){
-            console.log("handleMouseMove is -10 -10");
+            
         }
       }
       if(tempPoint.checkSelection()){
         tempTrack.checkPassingPoint(pointManager.getPoints(), overPoint);
         if(overPoint.tempPointPosX() === -10 && overPoint.tempPointPosY() === -10){
-            console.log("handleMouseMove2 is -10 -10");
+            
             }
       }
 

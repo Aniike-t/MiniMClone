@@ -26,10 +26,9 @@ function isMouseOverPoint(mouseX, mouseY, points, tempPoint, context, canvas) {
         const distance = Math.sqrt((mouseX - point.x) ** 2 + (mouseY - point.y) ** 2);
 
         if (distance <= point.radius) {
-            console.log("Temp point selected")
+
             tempPoint.updatePosition(point.x, point.y);
             tempPoint.draw();
-            console.log(tempPoint.x, tempPoint.y)
             return true;
         }
     }
@@ -65,14 +64,12 @@ function calculateSlope(x1, y1, x2, y2) {
 }
 
 function isDistanceLessThan(x, y, a, b, distance) {
-    console.log(x,y,a,b,distance);
+
     const squaredDistance = (x - a)**2 + (y - b)**2;
-    console.log(squaredDistance);
     return squaredDistance < distance;  // 5^2 = 25
 }
 
 function getPointAtXY(x,y,points){
-    console.log("hiiiiiiiiiiiiiiiiiiiiiiiiii")
     for (let i = 0; i < points.length; i++) {
         const point = points[i];
         if(point.x == x && point.y == y){

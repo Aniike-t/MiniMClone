@@ -51,11 +51,28 @@ class PointManager {
 
     drawPoints() {
         this.points.forEach(point => {
-            this.context.fillStyle = 'red';
-            this.context.beginPath();
-            this.context.arc(point.x, point.y, point.radius, 0, Math.PI * 2);
-            this.context.fill();
-            this.context.closePath();
+            if(point.shape === 'circle'){
+                this.context.fillStyle = 'grey';
+                this.context.beginPath();
+                this.context.arc(point.x, point.y, point.radius, 0, Math.PI * 2);
+                this.context.fill();
+                this.context.closePath();
+            }
+            else if(point.shape === 'square'){
+                this.context.fillStyle = 'grey';
+                this.context.beginPath();
+                this.context.fillRect(point.x - point.radius, point.y - point.radius, point.radius*2, point.radius*2);
+                this.context.closePath();
+            }
+            else if(point.shape === 'triangle'){
+                this.context.fillStyle = 'grey';
+                this.context.beginPath();
+                this.context.moveTo(point.x, point.y - point.radius);
+                this.context.lineTo(point.x - point.radius, point.y + point.radius);
+                this.context.lineTo(point.x + point.radius, point.y + point.radius);
+                this.context.fill();
+                this.context.closePath();
+            }
         });
     }
     getPoint(x,y){

@@ -7,19 +7,29 @@ import TrackManager from './points/trackManager';
 import SceneDraw from './points/sceneDraw';
 import TempTrack from './points/temp/tempTrack';
 import TrackInfo from './points/trackInfo/trackInfo';
+import DepotButton from './GameMechanics/UI/DepotButton.js';
+
 
 // Initialize variables
 let TrackColor = "blue";
 const canvas = document.getElementById('gameCanvas');
 const context = canvas.getContext('2d');
+
+context.mozImageSmoothingEnabled = false;
+context.webkitImageSmoothingEnabled = false;
+context.msImageSmoothingEnabled = false;
+context.imageSmoothingEnabled = false;
+
+
 const RedTrack = new TrackInfo();
 const BlueTrack = new TrackInfo();
+const depotButton = new DepotButton(context, canvas);
 const pointManager = new PointManager(context, canvas);
 const trackManager = new TrackManager(context, canvas, TrackColor, RedTrack, BlueTrack);
 const tempPoint = new TempPoint(-10, -10, context);
 const tempTrack = new TempTrack(context);
 const overPoint = new TempPoint(-10, -10, context);
-const sceneDraw = new SceneDraw(context, canvas, pointManager, trackManager, tempPoint, tempTrack, overPoint);
+const sceneDraw = new SceneDraw(context, canvas, pointManager, trackManager, tempPoint, tempTrack, overPoint, depotButton);
 
 
 canvas.width = 800;
@@ -27,7 +37,7 @@ canvas.height = 600;
 
 // Create a single instance of TempPoint
 
-Mouse(canvas, context, pointManager, tempPoint, tempTrack, overPoint, trackManager);
+Mouse(canvas, context, pointManager, tempPoint, tempTrack, overPoint, trackManager, depotButton);
 
 
 

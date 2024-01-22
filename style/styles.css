@@ -1,0 +1,64 @@
+html {
+    height: 100%;
+    width: 100%;
+    background-color: #f5f5f5;
+}
+
+body {
+    margin: 0; /* Remove default margin */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Use 100vh to set the body height to the viewport height */
+    background-color: rgb(42, 42, 42);
+}
+
+#gameCanvas {
+    background-color: white;
+    position: relative; /* Make sure the canvas is positioned relative to its container */
+    border-radius: 20px;
+}
+
+#UIelements {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: absolute; /* Position the UI elements absolutely within the canvas container */
+    bottom: 60px; /* Adjust the top position as needed */
+    left: 60px; /* Adjust the left position as needed */
+    background-color: #474747e5;
+    min-width: fit-content;
+    height:60px;
+    border-radius: 15px;
+}
+#UIelements button{
+    width:50px;
+    height: 50px;
+    border-radius: 10px;
+    margin: 5px;
+    border: 0px;
+    padding: 0;
+    transition: 0.5s all;
+    border: 4px #968e8e solid;
+}
+#bluelinebtn{
+    background: url('/public/BlueLineIcon.png') center center no-repeat ;
+    background-size: cover;
+}
+#redlinebtn{
+    background: url('/public/RedLineIcon.png') center center no-repeat;
+    background-size: cover;
+}
+
+#bluelinebtn:hover{
+    transition: 0.5s all;
+    border: 4px #f5f5f5 solid;
+    background: url('/public/BlueIconHovered.png') center center no-repeat;
+    background-size: cover;
+}
+#redlinebtn:hover{
+    transition: 0.5s all;
+    border: 4px #f5f5f5 solid;
+    background: url('/public/RedIconHovered.png') center center no-repeat;
+    background-size: cover;
+}

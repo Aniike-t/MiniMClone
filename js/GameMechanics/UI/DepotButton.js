@@ -6,7 +6,8 @@ class DepotButton {
         this.svgImage = new Image();
         this.svgImage.src = "/DepotButtonUnclicked.png";
         this.svgImage.onload = () => this.drawDepotButton();
-        this.clicked = false;
+        this.hovered = false;
+        this.isClicked = false;
     }
 
     drawDepotButton() {
@@ -32,11 +33,11 @@ class DepotButton {
         const isButton = x >= buttonX && x <= buttonX + buttonWidth && y >= buttonY && y <= buttonY + buttonHeight;
         if (isButton) {
             this.changeImage(this.svgImage.src, "/DepotButtonClicked.png");
-            this.clicked = true;
+            this.hovered = true;
             return true;
         }else{
             this.changeImage(this.svgImage.src, "/DepotButtonUnclicked.png");
-            this.clicked = false;
+            this.hovered = false;
             return false;
         }
     }
@@ -46,6 +47,15 @@ class DepotButton {
             this.svgImage.src = newSrc;
         }
     }
+
+    checkClicked(){
+        if(this.isClicked){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
 }
 
 export default DepotButton;

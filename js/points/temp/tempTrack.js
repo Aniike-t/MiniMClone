@@ -6,6 +6,8 @@ class TempTrack {
         this.y1 = -10;
         this.x2 = -10;
         this.y2 = -10;
+        this.BGImage = new Image();
+        this.BGImage.src = "/BG1main.png";
     }
 
     tempDraw(mouseX, mouseY, tempPointX, tempPointY) {
@@ -19,6 +21,7 @@ class TempTrack {
     drawTempTrack() {
         // Clear the canvas before drawing the temporary track
         this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
+        this.context.drawImage(this.BGImage, 0, 0, this.context.canvas.width, this.context.canvas.height);
         this.context.strokeStyle = "yellow";
         this.context.lineWidth = 3;
         this.context.beginPath();

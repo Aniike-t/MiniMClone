@@ -14,11 +14,9 @@ import DepotButton from './GameMechanics/UI/DepotButton.js';
 let TrackColor = "blue";
 const canvas = document.getElementById('gameCanvas');
 const context = canvas.getContext('2d');
+ 
 
-context.mozImageSmoothingEnabled = false;
-context.webkitImageSmoothingEnabled = false;
-context.msImageSmoothingEnabled = false;
-context.imageSmoothingEnabled = false;
+
 
 
 const RedTrack = new TrackInfo();
@@ -32,9 +30,13 @@ const overPoint = new TempPoint(-10, -10, context);
 const sceneDraw = new SceneDraw(context, canvas, pointManager, trackManager, tempPoint, tempTrack, overPoint, depotButton);
 
 
-canvas.width = 800;
-canvas.height = 600;
+canvas.width = window.innerWidth-100;
+canvas.height = window.innerHeight-100;
 
+context.mozImageSmoothingEnabled = false;
+context.webkitImageSmoothingEnabled = false;
+context.msImageSmoothingEnabled = false;
+context.imageSmoothingEnabled = false;
 // Create a single instance of TempPoint
 
 Mouse(canvas, context, pointManager, tempPoint, tempTrack, overPoint, trackManager, depotButton);

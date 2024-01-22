@@ -4,17 +4,21 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+    <link rel="stylesheet" href="style/styles.css">
     <title>Vite App</title>
   </head>
   <body style="background-color: black;">
     <div id="app" ></div>
-    <canvas id="gameCanvas" style="background-color: white;"></canvas>
-    <button onclick="AddPoint()">Add Point</button>
-    <button onclick="AddTrack()">Remove Point</button>
+    <canvas id="gameCanvas" style="background-color: white;"></canvas><br>
 
-    <button onclick="ChangeLine('blue')" value="blue">Blue</button>
-    <button onclick="ChangeLine('red')" value="red">Red</button>
+    <div id="UIelements">
+      <button onclick="AddPoint()">Add Point</button>
+      <button onclick="AddTrack()">Remove Point</button>
+  
+      <button onclick="ChangeLine('blue')" value="blue" id="bluelinebtn"></button>
+      <button onclick="ChangeLine('red')" value="red" id="redlinebtn"></button>  
+    </div>
+
     <script type="module" src="/js/main.js"></script>
     
     <script src="/js/math/utils.js"></script>

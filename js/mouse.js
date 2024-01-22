@@ -4,13 +4,17 @@ function Mouse(canvas, context, pointManager, tempPoint, tempTrack, overPoint, t
     let btnA = false;
     let buttonDepot = false;
 
+
+    const BGimage = new Image();
+    BGimage.src = "/BG1main.png";
     // Attach the contextmenu event listener to your element (e.g., canvas)
     canvas.addEventListener('contextmenu', handleContextMenu);
     canvas.addEventListener('mousedown', handleMouseDown);
     canvas.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('wheel', handleScroll, { passive: false });
 
-    function handleMouseDown(e) {
+    function handleMouseDown(e) {     
         if (e.button === 2) {
             // Right-click
             console.log("Right Click");
@@ -35,9 +39,14 @@ function Mouse(canvas, context, pointManager, tempPoint, tempTrack, overPoint, t
                 console.log("handleMouseDown is -10 -10");
             }
         }
+        
     }
 
-
+    function handleScroll(event) {
+        if (event.ctrlKey) {
+            event.preventDefault(); // Prevent the default zoom action
+        }
+    }
 
     function handleContextMenu(event) {
         event.preventDefault(); // Prevent the default context menu
@@ -48,11 +57,8 @@ function Mouse(canvas, context, pointManager, tempPoint, tempTrack, overPoint, t
         mouseX = e.clientX - canvas.getBoundingClientRect().left;
         mouseY = e.clientY - canvas.getBoundingClientRect().top;
 
-        if(depotButton.isMouseOverDepotButton(mouseX, mouseY)){
-            depotButton.svgImage.src = "/DepotButtonUnclicked.png";
-        }else{
-            depotButton.svgImage.src = "/DepotButtonClicked.png";
-        }
+        depotButton.isMouseOverDepotButton(mouseX, mouseY)
+           
 
         if (!tempPoint.checkSelection()) {
             isMouseOverPoint(mouseX, mouseY, pointManager.getPoints(), tempPoint, context, canvas)

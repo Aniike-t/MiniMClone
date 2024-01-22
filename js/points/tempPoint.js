@@ -25,7 +25,7 @@ class TempPoint {
     draw({color="green"}={}) {
         this.context.fillStyle = color;
         this.context.beginPath();
-        this.context.arc(this.x, this.y, 10, 0, Math.PI * 2);
+        this.context.arc(this.x, this.y, 14, 0, Math.PI * 2);
         this.context.fill();
         this.context.closePath();
     }

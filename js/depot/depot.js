@@ -8,16 +8,20 @@ class Depot{
         this.color = "green";
         this.connected = false;
     }
+
     ChangeColor(color){
         this.color = color;
     }
+
     UpdatePosition(x, y) {
         this.x = x;
         this.y = y;
     }
+
     UpdateConnection(){
         this.connected = true;
     }
+    
     draw() {
         this.context.fillStyle = this.color;
         this.context.beginPath();

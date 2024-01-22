@@ -15,7 +15,7 @@ class Point {
             this.y = this.randomY();
         }
 
-        this.radius = 7; // Radius of the circular shape
+        this.radius = 10; // Radius of the circular shape
         this.shape = this.getRandomShape(); // Shape of the point
     }
 

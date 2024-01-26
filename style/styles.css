@@ -62,3 +62,14 @@ body {
     background: url('/public/RedIconHovered.png') center center no-repeat;
     background-size: cover;
 }
+
+.error-box {
+    display: none;
+    position: absolute;
+    padding: 10px;
+    background-color: #f44336;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    z-index: 1;
+}

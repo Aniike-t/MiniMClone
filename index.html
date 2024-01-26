@@ -9,6 +9,12 @@
   </head>
   <body style="background-color: black;">
     <div id="app" ></div>
+
+    <div class="error-box" id="errorBox">
+      <!-- Error message goes here -->
+      Something went wrong!
+    </div>
+
     <canvas id="gameCanvas" style="background-color: white;"></canvas><br>
 
     <div id="UIelements">
@@ -17,6 +23,9 @@
   
       <button onclick="ChangeLine('blue')" value="blue" id="bluelinebtn"></button>
       <button onclick="ChangeLine('red')" value="red" id="redlinebtn"></button>  
+
+      <button onclick="showError()">Show Error</button>
+
     </div>
 
     <script type="module" src="/js/main.js"></script>

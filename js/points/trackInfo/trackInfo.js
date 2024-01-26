@@ -1,3 +1,5 @@
+import ErrorDisplay from '../../ErrorMessages/errorDisplay.js';
+
 class TrackInfo{
     constructor(){
         this.trackPath = [];
@@ -30,6 +32,9 @@ class TrackInfo{
         }
         else{
             console.log(this.TrackPoints);
+            const errorDisplay = new ErrorDisplay();
+            errorDisplay.displayError("You can't place a track here");
+            errorDisplay.ErrorRemover();
             return false;
         }
     }

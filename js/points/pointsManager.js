@@ -73,10 +73,13 @@ class PointManager {
                 this.context.fill();
                 this.context.closePath();
             }
+            point.travellers.forEach(traveller => {
+                traveller.draw();
+            });
+
         });
     }
     getPoint(x,y){
-
         return getPointAtXY(x,y,this.points);
     }
 }

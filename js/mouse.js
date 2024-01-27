@@ -1,4 +1,4 @@
-function Mouse(canvas, context, pointManager, tempPoint, tempTrack, overPoint, trackManager, depotButton) {
+function Mouse(canvas, context, pointManager, tempPoint, tempTrack, overPoint, trackManager ) {
     let mouseX = 0;
     let mouseY = 0;
     let btnA = false;
@@ -55,10 +55,7 @@ function Mouse(canvas, context, pointManager, tempPoint, tempTrack, overPoint, t
 
     function handleMouseMove(e) {
         mouseX = e.clientX - canvas.getBoundingClientRect().left;
-        mouseY = e.clientY - canvas.getBoundingClientRect().top;
-
-        depotButton.isMouseOverDepotButton(mouseX, mouseY)
-           
+        mouseY = e.clientY - canvas.getBoundingClientRect().top;        
 
         if (!tempPoint.checkSelection()) {
             isMouseOverPoint(mouseX, mouseY, pointManager.getPoints(), tempPoint, context, canvas)

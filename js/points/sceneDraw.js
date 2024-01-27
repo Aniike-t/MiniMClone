@@ -1,5 +1,5 @@
 class SceneDraw{
-    constructor(context, canvas, pointManager, trackManager, tempPoint, tempTrack, overPoint, depotButton){
+    constructor(context, canvas, pointManager, trackManager, tempPoint, tempTrack, overPoint){
         this.canvas = canvas;
         this.context = context;
         this.pointManager = pointManager;
@@ -8,7 +8,6 @@ class SceneDraw{
         this.tempTrack = tempTrack;
         this.color = "blue"
         this.overPoint = overPoint;
-        this.depotButton = depotButton;
 
 
         this.BGimage = new Image();
@@ -21,7 +20,6 @@ class SceneDraw{
         
         this.trackManager.drawTracks();
         this.pointManager.drawPoints();
-        //this.depotButton.drawDepotButton();
         
         this.context.save();
     }

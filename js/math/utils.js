@@ -78,3 +78,12 @@ function getPointAtXY(x,y,points){
     }
     return null;
 }
+
+function GetRandomTrueFalse(){
+    if(getRandom(4) == 1){
+        return true;
+    }else{
+        return false;
+    }
+}
+
